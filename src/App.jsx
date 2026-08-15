@@ -72,6 +72,7 @@ function App() {
               ref={videoRef}
               src={videoUrl}
               controls
+              playsInline
               onLoadedMetadata={handleLoadedMetadata}
             />
           )}
