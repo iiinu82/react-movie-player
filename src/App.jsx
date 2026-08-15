@@ -6,6 +6,7 @@ function App() {
   const [videoUrl, setVideoUrl] = useState("");
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // 動画を選択する関数
   const handleVideoChange = (event) => {
@@ -21,6 +22,19 @@ function App() {
   const handleLoadedMetadata = () => {
     if (videoRef.current) {
       setEndTime(videoRef.current.duration);
+    }
+  };
+
+  // 再生、停止
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
     }
   };
 
@@ -77,6 +91,7 @@ function App() {
             />
           )}
         </div>
+
         <div className="seekButtonArea">
           <button className="seekButton" onClick={() => handleSeek(-60)}>
             -60
@@ -98,6 +113,9 @@ function App() {
           </button>
         </div>
         <div className="speedButtonArea">
+          <button className="playPauseButton" onClick={handlePlayPause}>
+            {isPlaying ? "Ⅱ" : "▶"}
+          </button>
           <button className="speedButton" onClick={() => handleSpeed(0.5)}>
             0.5
           </button>

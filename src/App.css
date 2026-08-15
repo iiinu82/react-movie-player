@@ -23,6 +23,21 @@
   object-fit: contain;
 }
 
+.playPauseButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff0000;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+
 .seekButtonArea {
   display: flex;
   justify-content: center;
