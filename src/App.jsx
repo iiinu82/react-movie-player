@@ -66,6 +66,13 @@ function App() {
     }
   };
 
+  // 時間に移動する関数
+  const handleMove = (time) => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = time;
+    }
+  };
+
   // 秒数を0:00表記に変える関数
   const formatTime = (seconds) => {
     const totalSeconds = Math.floor(seconds);
@@ -146,7 +153,9 @@ function App() {
           <button className="pick" onClick={handlePickStart}>
             指定
           </button>
-          <button className="move">移動</button>
+          <button className="move" onClick={() => handleMove(startTime)}>
+            移動
+          </button>
         </div>
         <div className="endTime">
           <p>終了時間 :</p>
@@ -154,7 +163,9 @@ function App() {
           <button className="pick" onClick={handlePickEnd}>
             指定
           </button>
-          <button className="move">移動</button>
+          <button className="move" onClick={() => handleMove(endTime)}>
+            移動
+          </button>
         </div>
         <div className="elapsedTime">
           経過時間：{formatTime(endTime - startTime)}
