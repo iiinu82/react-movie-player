@@ -1,0 +1,149 @@
+#root {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background-color: #f4faff;
+}
+
+.movieScreen {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.movieScreen video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.seekButtonArea {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.seekButton,
+.seekButtonF {
+  width: 52px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffb007;
+  background-color: #fff0d1;
+  border-radius: 5px;
+  border: 3px solid #ffb007;
+}
+
+.seekButtonF {
+  color: #2dce00;
+  background-color: #d9ffcf;
+  border: 3px solid #2dce00;
+}
+
+.speedButtonArea {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.speedButton {
+  width: 52px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #3e02f5;
+  background-color: #e3daff;
+  border-radius: 5px;
+  border: 3px solid #3e02f5;
+}
+
+.timeArea {
+  margin: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #aeadad;
+}
+
+.startTime,
+.endTime {
+  height: 24px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.startTime p,
+.endTime p {
+  font-size: 16px;
+}
+.startTime input,
+.endTime input {
+  font-size: 16px;
+  width: 70px;
+  height: 30px;
+}
+
+.startTime input[type="radio"],
+.endTime input[type="radio"] {
+  width: 18px;
+}
+
+.elapsedTime {
+  font-size: 20px;
+}
+
+.pick,
+.move {
+  width: 52px;
+  height: 32px;
+}
+
+.pick {
+  background-color: #e8e8e8;
+  border-radius: 5px;
+}
+.move {
+  background-color: #e8e8e8;
+  border-radius: 5px;
+}
+
+.memoArea {
+  margin: 20px 15px;
+}
+
+.memoArea .topArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 10px;
+}
+.memoArea .topArea p {
+  font-size: 20px;
+}
+
+.memoArea textarea {
+  width: 100%;
+  height: 80px;
+}
+
+.saveScreen {
+  font-size: 14px;
+  width: 90px;
+  height: 35px;
+  color: white;
+  background-color: #7d7d7d;
+  border-radius: 15px;
+}
