@@ -4,6 +4,7 @@
   min-height: 100dvh;
   margin: 0 auto;
   background-color: #f4faff;
+  overflow-x: hidden;
 }
 
 p {
@@ -232,7 +233,9 @@ textarea {
 /* モーダル */
 .modalOverlay {
   position: fixed;
-  inset: 0;
+  top: 53vh;
+  left: 0;
+  width: 100%;
   background-color: #000000af;
   display: flex;
   justify-content: center;
@@ -245,7 +248,6 @@ textarea {
   width: 90%;
   max-width: 390px;
   padding: 25px;
-  padding-top: 35px;
   background-color: white;
   border-radius: 10px 10px 0 0;
   position: relative;
