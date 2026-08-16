@@ -219,7 +219,7 @@ textarea {
   background-color: #000000af;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   z-index: 1000;
 }
 
@@ -230,7 +230,7 @@ textarea {
   padding: 25px;
   padding-top: 35px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   position: relative;
   line-height: 1.8;
 }
