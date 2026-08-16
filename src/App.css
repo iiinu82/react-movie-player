@@ -3,7 +3,7 @@
   max-width: 390px;
   min-height: 100dvh;
   margin: 0 auto;
-  background-color: #f4faff;
+  background-color: #fafff9;
   overflow-x: hidden;
 }
 
@@ -38,7 +38,7 @@ textarea {
 }
 
 .seekBar {
-  width: 90%;
+  width: 95%;
   margin: 0 auto 20px;
   display: flex;
   align-items: center;
@@ -56,7 +56,7 @@ textarea {
   height: 45px;
   border-radius: 50%;
   border: none;
-  background-color: #ff0000;
+  background-color: #ff6262;
   color: white;
   font-size: 20px;
   display: flex;
@@ -79,15 +79,15 @@ textarea {
   font-size: 16px;
   font-weight: bold;
   color: #ffb920;
-  background-color: #fff5e2;
+  background-color: #fff9ed;
   border-radius: 5px;
-  border: 2px solid #ffc037;
+  border: 2px solid #ffcf66;
 }
 
 .seekButtonF {
   color: #3fd016;
-  background-color: #eafde5;
-  border: 2px solid #4ccd28;
+  background-color: #f4fff1;
+  border: 2px solid #7dce67;
 }
 
 .speedButtonArea {
@@ -113,19 +113,20 @@ textarea {
   height: 30px;
   font-size: 16px;
   font-weight: bold;
-  color: #6531ff;
-  background-color: #e3daff;
+  color: #855cff;
+  background-color: #ece6ff;
   border-radius: 5px;
-  border: 2px solid #6531ff;
+  border: 2px solid #855cff;
 }
 
 .timeArea {
-  margin: 20px 15px;
+  margin: 15px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   border: 1px solid #aeadad;
+  border-radius: 5px;
 }
 
 .startTime,
@@ -145,13 +146,8 @@ textarea {
 .startTime input,
 .endTime input {
   font-size: 16px;
-  width: 70px;
+  width: 65px;
   height: 30px;
-}
-
-.startTime input[type="radio"],
-.endTime input[type="radio"] {
-  width: 18px;
 }
 
 .elapsed-score {
@@ -195,7 +191,7 @@ textarea {
 .pick,
 .move {
   width: 52px;
-  height: 32px;
+  height: 30px;
 }
 
 .pick {
@@ -225,7 +221,7 @@ textarea {
 
 .memoArea textarea {
   width: 100%;
-  min-height: 48px;
+  height: 80px;
 }
 
 .saveScreen {

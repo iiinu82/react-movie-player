@@ -258,7 +258,7 @@ function App() {
 
       <div className="memoArea">
         <div className="topArea">
-          <p>メモ</p>
+          <p>メモ📋️</p>
         </div>
         <textarea
           value={memo}
