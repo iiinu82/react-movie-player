@@ -36,6 +36,15 @@ textarea {
   object-fit: contain;
 }
 
+.seekBar {
+  width: 90%;
+  margin: 0 auto 20px;
+}
+
+.seekBar input {
+  width: 100%;
+}
+
 .playPauseButton {
   width: 40px;
   height: 40px;
@@ -223,6 +232,7 @@ textarea {
   background-color: white;
   border-radius: 10px;
   position: relative;
+  line-height: 1.8;
 }
 
 .flexbox {
@@ -234,7 +244,7 @@ textarea {
   font-weight: bold;
   margin-left: 10px;
   font-size: 18px;
-  color: #00a118;
+  color: #007d13;
 }
 
 .modalContent button {

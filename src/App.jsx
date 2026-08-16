@@ -4,13 +4,15 @@ import "./App.css";
 function App() {
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState("");
+  const [currentTime, setCurrentTime] = useState(0);
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [videoName, setVideoName] = useState("");
   const [memo, setMemo] = useState("");
+  const [duration, setDuration] = useState(0);
 
   // 動画を選択する関数
   const handleVideoChange = (event) => {
@@ -27,6 +29,7 @@ function App() {
   const handleLoadedMetadata = () => {
     if (videoRef.current) {
       setEndTime(videoRef.current.duration);
+      setDuration(videoRef.current.duration);
     }
   };
 
@@ -45,9 +48,16 @@ function App() {
 
   // 秒数シークの関数
   const handleSeek = (seconds) => {
-    if (videoRef.current) {
-      videoRef.current.currentTime += seconds;
-    }
+    const newTime = Math.max(
+      0,
+      Math.min(
+        videoRef.current.duration,
+        videoRef.current.currentTime + seconds,
+      ),
+    );
+
+    videoRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
   };
 
   // 動画再生スピードの関数
@@ -95,15 +105,30 @@ function App() {
         <div className="movieScreen">
           {videoUrl && (
             <video
+              onClick={handlePlayPause}
               ref={videoRef}
               src={videoUrl}
-              controls
               playsInline
               onLoadedMetadata={handleLoadedMetadata}
+              onTimeUpdate={() => setCurrentTime(videoRef.current.currentTime)}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
             />
           )}
         </div>
-
+        <div className="seekBar">
+          <input
+            type="range"
+            min="0"
+            max={duration}
+            value={currentTime}
+            onChange={(e) => {
+              const time = Number(e.target.value);
+              setCurrentTime(time);
+              videoRef.current.currentTime = time;
+            }}
+          />
+        </div>
         <div className="seekButtonArea">
           <button className="seekButton" onClick={() => handleSeek(-60)}>
             -60
