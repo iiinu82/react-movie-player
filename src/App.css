@@ -3,7 +3,7 @@
   max-width: 390px;
   min-height: 100dvh;
   margin: 0 auto;
-  background-color: #fafff9;
+  background-color: #fdefca;
   overflow-x: hidden;
 }
 
@@ -56,7 +56,7 @@ textarea {
   height: 45px;
   border-radius: 50%;
   border: none;
-  background-color: #ff6262;
+  background-color: #ffb2c4;
   color: white;
   font-size: 20px;
   display: flex;
@@ -78,16 +78,16 @@ textarea {
   height: 40px;
   font-size: 16px;
   font-weight: bold;
-  color: #ffb920;
-  background-color: #fff9ed;
+  color: #ff996f;
+  background-color: #fff3ee;
   border-radius: 5px;
-  border: 2px solid #ffcf66;
+  border: 2px solid #ff996f;
 }
 
 .seekButtonF {
-  color: #3fd016;
-  background-color: #f4fff1;
-  border: 2px solid #7dce67;
+  color: #89ce21;
+  background-color: #f6feea;
+  border: 2px solid #89ce21;
 }
 
 .speedButtonArea {
@@ -104,7 +104,7 @@ textarea {
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  background-color: #d3c4ff;
+  background-color: #cdeaf8;
   border-radius: 5px;
   border: 1px solid #ffffff;
 }
@@ -113,10 +113,10 @@ textarea {
   height: 30px;
   font-size: 16px;
   font-weight: bold;
-  color: #855cff;
-  background-color: #ece6ff;
+  color: #2db3f6;
+  background-color: #cdeaf8;
   border-radius: 5px;
-  border: 2px solid #855cff;
+  border: 2px solid #2db3f6;
 }
 
 .timeArea {
