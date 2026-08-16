@@ -306,7 +306,7 @@ function App() {
         </div>
       )}
       <footer>
-        <small>© 2026 T.Kawakatsu · Version 1.0.0</small>
+        <small>© 2026 T.Kawakatsu · VideoMeter - Version 1.0.0</small>
       </footer>
     </>
   );
