@@ -221,21 +221,35 @@ function App() {
           <div className="modalContent">
             <p>{videoName}</p>
             <div className="flexbox">
-              <p>開始時間：{formatTime(startTime)}</p>
-              <p>終了時間：{formatTime(endTime)}</p>
+              <p>
+                開始時間<span>{formatTime(startTime)}</span>
+              </p>
+              <p>
+                終了時間<span>{formatTime(endTime)}</span>
+              </p>
             </div>
             <div className="flexbox">
-              <p>経過時間：{formatTime(endTime - startTime)}</p>
-              <p>スコア：{score}</p>
+              <p>
+                経過時間<span>{formatTime(endTime - startTime)}</span>
+              </p>
+              <p>
+                スコア<span>{score}</span>
+              </p>
             </div>
 
             <p>
-              1分あたり：
-              {endTime > startTime
-                ? Math.floor((score / (endTime - startTime)) * 60)
-                : 0}
+              スコア効率
+              <span>
+                {endTime > startTime
+                  ? Math.floor((score / (endTime - startTime)) * 60)
+                  : 0}
+                /m
+              </span>
             </p>
-            <div className="modalMemo">{memo}</div>
+            <div className="modalMemo">
+              <p>📋️メモ</p>
+              {memo}
+            </div>
 
             <button onClick={() => setShowModal(false)}>✕</button>
           </div>
