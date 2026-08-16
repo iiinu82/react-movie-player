@@ -205,7 +205,7 @@ function App() {
             readOnly
           />
           <button className="pick" onClick={handlePickStart}>
-            指定
+            記録
           </button>
           <button className="move" onClick={() => handleMove(startTime)}>
             移動
@@ -221,7 +221,7 @@ function App() {
             readOnly
           />
           <button className="pick" onClick={handlePickEnd}>
-            指定
+            記録
           </button>
           <button className="move" onClick={() => handleMove(endTime)}>
             移動
@@ -241,22 +241,24 @@ function App() {
             />
           </div>
         </div>
-        <div className="scorePerMinute">
-          <span>
-            {endTime > startTime
-              ? Math.floor((score / (endTime - startTime)) * 60)
-              : "0"}{" "}
-            / 分
-          </span>
+        <div className="scorePerMinuteSaveButtonArea">
+          <div className="scorePerMinute">
+            <span>
+              {endTime > startTime
+                ? Math.floor((score / (endTime - startTime)) * 60)
+                : "0"}{" "}
+              / 分
+            </span>
+          </div>
+          <button className="saveScreen" onClick={() => setShowModal(true)}>
+            保存用画面
+          </button>
         </div>
       </div>
 
       <div className="memoArea">
         <div className="topArea">
           <p>メモ</p>
-          <button className="saveScreen" onClick={() => setShowModal(true)}>
-            保存用画面
-          </button>
         </div>
         <textarea
           value={memo}
@@ -303,6 +305,9 @@ function App() {
           </div>
         </div>
       )}
+      <footer>
+        <small>© 2026 T.Kawakatsu · Version 1.0.0</small>
+      </footer>
     </>
   );
 }

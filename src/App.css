@@ -180,6 +180,13 @@ textarea {
   width: 60px;
 }
 
+.scorePerMinuteSaveButtonArea {
+  margin-top: 5px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .scorePerMinute {
   font-size: 20px;
   font-weight: bold;
@@ -218,7 +225,7 @@ textarea {
 
 .memoArea textarea {
   width: 100%;
-  height: 80px;
+  min-height: 48px;
 }
 
 .saveScreen {
@@ -227,7 +234,7 @@ textarea {
   height: 35px;
   color: white;
   background-color: #7d7d7d;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 /* モーダル */
@@ -293,4 +300,12 @@ textarea {
 
 .modalMemo p {
   font-size: 12px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #868585;
 }
