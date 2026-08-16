@@ -6,6 +6,10 @@
   background-color: #f4faff;
 }
 
+p {
+  margin: 0;
+}
+
 .movieScreen {
   width: 100%;
   height: 50vh;
@@ -35,7 +39,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding-bottom: 3px;
 }
 
 .seekButtonArea {
@@ -115,8 +118,35 @@
   width: 18px;
 }
 
+.elapsed-score {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .elapsedTime {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.score {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.score input {
+  margin-left: 5px;
+  width: 60px;
+}
+
+.scorePerMinute {
   font-size: 20px;
+  font-weight: bold;
 }
 
 .pick,
@@ -135,7 +165,8 @@
 }
 
 .memoArea {
-  margin: 20px 15px;
+  width: 100%;
+  padding: 20px 15px;
 }
 
 .memoArea .topArea {
@@ -161,4 +192,48 @@
   color: white;
   background-color: #7d7d7d;
   border-radius: 15px;
+}
+
+/* モーダル */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000000af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  width: 85%;
+  max-width: 390px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.flexbox {
+  display: flex;
+  gap: 20px;
+}
+
+.modalContent button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 22px;
+  line-height: 1;
+  background-color: white;
+  border: 1px solid #888;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalMemo {
+  white-space: pre-wrap;
 }

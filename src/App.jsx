@@ -7,6 +7,10 @@ function App() {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [score, setScore] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [videoName, setVideoName] = useState("");
+  const [memo, setMemo] = useState("");
 
   // 動画を選択する関数
   const handleVideoChange = (event) => {
@@ -15,6 +19,7 @@ function App() {
     if (file) {
       const url = URL.createObjectURL(file);
       setVideoUrl(url);
+      setVideoName(file.name);
     }
   };
 
@@ -149,6 +154,7 @@ function App() {
             name="start"
             id="start"
             value={formatTime(startTime)}
+            readOnly
           />
           <button className="pick" onClick={handlePickStart}>
             指定
@@ -159,7 +165,13 @@ function App() {
         </div>
         <div className="endTime">
           <p>終了時間 :</p>
-          <input type="text" name="end" id="end" value={formatTime(endTime)} />
+          <input
+            type="text"
+            name="end"
+            id="end"
+            value={formatTime(endTime)}
+            readOnly
+          />
           <button className="pick" onClick={handlePickEnd}>
             指定
           </button>
@@ -167,18 +179,68 @@ function App() {
             移動
           </button>
         </div>
-        <div className="elapsedTime">
-          経過時間：{formatTime(endTime - startTime)}
+        <div className="elapsed-score">
+          <div className="elapsedTime">
+            経過時間：{formatTime(endTime - startTime)}
+          </div>
+          <div className="score">
+            <span>スコア: </span>
+            <input
+              type="number"
+              name="score"
+              value={score}
+              onChange={(e) => setScore(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="scorePerMinute">
+          <span>
+            {endTime > startTime
+              ? Math.floor((score / (endTime - startTime)) * 60)
+              : "0"}{" "}
+            / 分
+          </span>
         </div>
       </div>
 
       <div className="memoArea">
         <div className="topArea">
           <p>メモ</p>
-          <button className="saveScreen">保存用画面</button>
+          <button className="saveScreen" onClick={() => setShowModal(true)}>
+            保存用画面
+          </button>
         </div>
-        <textarea></textarea>
+        <textarea
+          value={memo}
+          onChange={(e) => setMemo(e.target.value)}
+        ></textarea>
       </div>
+
+      {showModal && (
+        <div className="modalOverlay">
+          <div className="modalContent">
+            <p>{videoName}</p>
+            <div className="flexbox">
+              <p>開始時間：{formatTime(startTime)}</p>
+              <p>終了時間：{formatTime(endTime)}</p>
+            </div>
+            <div className="flexbox">
+              <p>経過時間：{formatTime(endTime - startTime)}</p>
+              <p>スコア：{score}</p>
+            </div>
+
+            <p>
+              1分あたり：
+              {endTime > startTime
+                ? Math.floor((score / (endTime - startTime)) * 60)
+                : 0}
+            </p>
+            <div className="modalMemo">{memo}</div>
+
+            <button onClick={() => setShowModal(false)}>✕</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
