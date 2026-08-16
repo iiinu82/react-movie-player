@@ -39,15 +39,20 @@ textarea {
 .seekBar {
   width: 90%;
   margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
+.seekBar input {
+  flex: 1;
+}
 .seekBar input {
   width: 100%;
 }
 
 .playPauseButton {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
   background-color: #ff0000;
@@ -62,7 +67,7 @@ textarea {
 .seekButtonArea {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   margin-bottom: 15px;
 }
 
@@ -72,33 +77,45 @@ textarea {
   height: 40px;
   font-size: 16px;
   font-weight: bold;
-  color: #ffb007;
-  background-color: #fff0d1;
+  color: #ffb920;
+  background-color: #fff5e2;
   border-radius: 5px;
-  border: 3px solid #ffb007;
+  border: 2px solid #ffc037;
 }
 
 .seekButtonF {
-  color: #2dce00;
-  background-color: #d9ffcf;
-  border: 3px solid #2dce00;
+  color: #3fd016;
+  background-color: #eafde5;
+  border: 2px solid #4ccd28;
 }
 
 .speedButtonArea {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
 }
+
 .speedButton {
-  width: 52px;
-  height: 40px;
+  width: 48px;
+  height: 30px;
   font-size: 16px;
   font-weight: bold;
-  color: #3e02f5;
+  color: #ffffff;
+  background-color: #d3c4ff;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+}
+.speedButton.selected {
+  width: 48px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6531ff;
   background-color: #e3daff;
   border-radius: 5px;
-  border: 3px solid #3e02f5;
+  border: 2px solid #6531ff;
 }
 
 .timeArea {

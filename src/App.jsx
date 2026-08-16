@@ -8,6 +8,7 @@ function App() {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [playbackRate, setPlaybackRate] = useState(1.0);
   const [score, setScore] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [videoName, setVideoName] = useState("");
@@ -64,6 +65,7 @@ function App() {
   const handleSpeed = (speed) => {
     if (videoRef.current) {
       videoRef.current.playbackRate = speed;
+      setPlaybackRate(speed);
     }
   };
 
@@ -117,6 +119,7 @@ function App() {
           )}
         </div>
         <div className="seekBar">
+          <span>{formatTime(currentTime)}</span>
           <input
             type="range"
             min="0"
@@ -128,6 +131,7 @@ function App() {
               videoRef.current.currentTime = time;
             }}
           />
+          <span>{formatTime(duration)}</span>
         </div>
         <div className="seekButtonArea">
           <button className="seekButton" onClick={() => handleSeek(-60)}>
@@ -153,19 +157,38 @@ function App() {
           <button className="playPauseButton" onClick={handlePlayPause}>
             {isPlaying ? "Ⅱ" : "▶"}
           </button>
-          <button className="speedButton" onClick={() => handleSpeed(0.5)}>
+          <button
+            className={`speedButton ${playbackRate === 0.5 ? "selected" : ""}`}
+            onClick={() => handleSpeed(0.5)}
+          >
             0.5
           </button>
-          <button className="speedButton" onClick={() => handleSpeed(0.8)}>
+
+          <button
+            className={`speedButton ${playbackRate === 0.8 ? "selected" : ""}`}
+            onClick={() => handleSpeed(0.8)}
+          >
             0.8
           </button>
-          <button className="speedButton" onClick={() => handleSpeed(1.0)}>
+
+          <button
+            className={`speedButton ${playbackRate === 1.0 ? "selected" : ""}`}
+            onClick={() => handleSpeed(1.0)}
+          >
             1.0
           </button>
-          <button className="speedButton" onClick={() => handleSpeed(1.2)}>
+
+          <button
+            className={`speedButton ${playbackRate === 1.2 ? "selected" : ""}`}
+            onClick={() => handleSpeed(1.2)}
+          >
             1.2
           </button>
-          <button className="speedButton" onClick={() => handleSpeed(1.5)}>
+
+          <button
+            className={`speedButton ${playbackRate === 1.5 ? "selected" : ""}`}
+            onClick={() => handleSpeed(1.5)}
+          >
             1.5
           </button>
         </div>
