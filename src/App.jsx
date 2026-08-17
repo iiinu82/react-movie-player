@@ -219,6 +219,7 @@ function App() {
             name="startScore"
             value={startScore}
             onChange={(e) => setStartScore(e.target.value)}
+            placeholder="0"
           />
         </div>
         <div className="endTime">
@@ -246,7 +247,8 @@ function App() {
         </div>
         <div className="elapsed-score">
           <div className="elapsedTime">
-            経過時間：{formatTime(endTime - startTime)}
+            経過時間：
+            {endTime >= startTime ? formatTime(endTime - startTime) : "--"}
           </div>
           <div className="score">
             <span>スコア: </span>
