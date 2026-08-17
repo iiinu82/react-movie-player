@@ -3,7 +3,7 @@
   max-width: 390px;
   min-height: 100dvh;
   margin: 0 auto;
-  background-color: #fdefca;
+  background-color: #ffffff;
   overflow-x: hidden;
 }
 
@@ -20,6 +20,9 @@ textarea {
   font-weight: bold;
 }
 
+.movieArea input {
+  margin: 5px;
+}
 .movieScreen {
   width: 100%;
   height: 50vh;
@@ -124,7 +127,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #aeadad;
   border-radius: 5px;
 }

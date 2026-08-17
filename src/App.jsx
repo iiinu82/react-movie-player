@@ -9,11 +9,14 @@ function App() {
   const [endTime, setEndTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1.0);
-  const [score, setScore] = useState("");
+
   const [showModal, setShowModal] = useState(false);
   const [videoName, setVideoName] = useState("");
   const [memo, setMemo] = useState("");
   const [duration, setDuration] = useState(0);
+  // const [score, setScore] = useState("");
+  const [startScore, setStartScore] = useState("");
+  const [endScore, setEndScore] = useState("");
 
   // 動画を選択する関数
   const handleVideoChange = (event) => {
@@ -196,7 +199,7 @@ function App() {
 
       <div className="timeArea">
         <div className="startTime">
-          <p>開始時間 :</p>
+          <p>🚩</p>
           <input
             type="text"
             name="start"
@@ -210,9 +213,16 @@ function App() {
           <button className="move" onClick={() => handleMove(startTime)}>
             移動
           </button>
+          S
+          <input
+            type="number"
+            name="startScore"
+            value={startScore}
+            onChange={(e) => setStartScore(e.target.value)}
+          />
         </div>
         <div className="endTime">
-          <p>終了時間 :</p>
+          <p>🏁</p>
           <input
             type="text"
             name="end"
@@ -226,6 +236,13 @@ function App() {
           <button className="move" onClick={() => handleMove(endTime)}>
             移動
           </button>
+          S
+          <input
+            type="number"
+            name="endScore"
+            value={endScore}
+            onChange={(e) => setEndScore(e.target.value)}
+          />
         </div>
         <div className="elapsed-score">
           <div className="elapsedTime">
@@ -233,19 +250,16 @@ function App() {
           </div>
           <div className="score">
             <span>スコア: </span>
-            <input
-              type="number"
-              name="score"
-              value={score}
-              onChange={(e) => setScore(e.target.value)}
-            />
+            <span className="score">{endScore - startScore}</span>
           </div>
         </div>
         <div className="scorePerMinuteSaveButtonArea">
           <div className="scorePerMinute">
             <span>
               {endTime > startTime
-                ? Math.floor((score / (endTime - startTime)) * 60)
+                ? Math.floor(
+                    ((endScore - startScore) / (endTime - startTime)) * 60,
+                  )
                 : "0"}{" "}
               / 分
             </span>
@@ -283,7 +297,7 @@ function App() {
                 経過時間<span>{formatTime(endTime - startTime)}</span>
               </p>
               <p>
-                スコア<span>{score}</span>
+                スコア<span>{endScore - startScore}</span>
               </p>
             </div>
 
@@ -291,7 +305,9 @@ function App() {
               スコア効率
               <span>
                 {endTime > startTime
-                  ? Math.floor((score / (endTime - startTime)) * 60)
+                  ? Math.floor(
+                      ((endScore - startScore) / (endTime - startTime)) * 60,
+                    )
                   : 0}
                 /m
               </span>
