@@ -296,7 +296,12 @@ function App() {
             </div>
             <div className="flexbox">
               <p>
-                経過時間<span>{formatTime(endTime - startTime)}</span>
+                経過時間
+                <span>
+                  {endTime >= startTime
+                    ? formatTime(endTime - startTime)
+                    : "--"}
+                </span>
               </p>
               <p>
                 スコア<span>{endScore - startScore}</span>
