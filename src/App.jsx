@@ -215,6 +215,7 @@ function App() {
           </button>
           S
           <input
+            className="score"
             type="number"
             name="startScore"
             value={startScore}
@@ -239,6 +240,7 @@ function App() {
           </button>
           S
           <input
+            className="score"
             type="number"
             name="endScore"
             value={endScore}
