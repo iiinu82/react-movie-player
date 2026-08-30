@@ -153,10 +153,10 @@ textarea {
   height: 30px;
 }
 
-.startTime input .score,
-.endTime input .score {
+.startTime input.inputScore,
+.endTime input.inputScore {
   font-size: 14px;
-  width: 90px;
+  width: 80px;
 }
 
 .elapsed-score {
