@@ -117,7 +117,12 @@ function App() {
               onLoadedMetadata={handleLoadedMetadata}
               onTimeUpdate={() => setCurrentTime(videoRef.current.currentTime)}
               onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
+              onPause={() => {
+                setIsPlaying(false);
+                if ("mediaSession" in navigator) {
+                  navigator.mediaSession.playbackState = "paused";
+                }
+              }}
             />
           )}
         </div>
