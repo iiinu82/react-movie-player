@@ -66,6 +66,7 @@ textarea {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .seekButtonArea {
@@ -97,12 +98,12 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   margin-bottom: 10px;
 }
 
 .speedButton {
-  width: 48px;
+  width: 40px;
   height: 30px;
   font-size: 16px;
   font-weight: bold;
@@ -122,12 +123,27 @@ textarea {
   border: 2px solid #2db3f6;
 }
 
+.muteButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ffb2c4;
+  background-color: #fffefe;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
 .timeArea {
-  margin: 15px 15px;
+  margin: 15px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid #aeadad;
   border-radius: 5px;
 }
@@ -138,7 +154,7 @@ textarea {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 15px;
 }
 
@@ -156,7 +172,54 @@ textarea {
 .startTime input.inputScore,
 .endTime input.inputScore {
   font-size: 14px;
+  width: 90px;
+}
+
+.bottomArea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.leftBottomArea {
   width: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.freeCount {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.leftBottomArea button {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  border: 3px solid #b9d0fe;
+  background-color: #f6f9ff;
+  border-radius: 5px;
+}
+
+.leftBottomArea .resetButton {
+  font-size: 10px;
+  border: 1px solid #444;
+  background-color: #ededed;
+  width: 60px;
+  height: 25px;
 }
 
 .elapsed-score {

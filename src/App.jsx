@@ -8,7 +8,9 @@ function App() {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1.0);
+  const [count, setCount] = useState(0);
 
   const [showModal, setShowModal] = useState(false);
   const [videoName, setVideoName] = useState("");
@@ -100,6 +102,14 @@ function App() {
     const remainingSeconds = totalSeconds % 60;
 
     return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+  };
+
+  // ミュートのオン/オフ切り替え
+  const handleMuteToggle = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
   };
 
   return (
@@ -199,6 +209,9 @@ function App() {
           >
             1.5
           </button>
+          <button className="muteButton" onClick={handleMuteToggle}>
+            {isMuted ? "🔇" : "🔊"}
+          </button>
         </div>
       </div>
 
@@ -252,30 +265,41 @@ function App() {
             onChange={(e) => setEndScore(e.target.value)}
           />
         </div>
-        <div className="elapsed-score">
-          <div className="elapsedTime">
-            経過時間：
-            {endTime >= startTime ? formatTime(endTime - startTime) : "--"}
+        <div className="bottomArea">
+          <div className="leftBottomArea">
+            <button onClick={() => setCount(count + 1)}>{count}</button>
+            <p className="freeCount">COUNT</p>
+            <button className="resetButton" onClick={() => setCount(0)}>
+              リセット
+            </button>
           </div>
-          <div className="score">
-            <span>スコア: </span>
-            <span className="score">{endScore - startScore}</span>
+          <div className="rightBottomArea">
+            <div className="elapsed-score">
+              <div className="elapsedTime">
+                経過時間：
+                {endTime >= startTime ? formatTime(endTime - startTime) : "--"}
+              </div>
+              <div className="score">
+                <span>スコア: </span>
+                <span className="score">{endScore - startScore}</span>
+              </div>
+            </div>
+            <div className="scorePerMinuteSaveButtonArea">
+              <div className="scorePerMinute">
+                <span>
+                  {endTime > startTime
+                    ? Math.floor(
+                        ((endScore - startScore) / (endTime - startTime)) * 60,
+                      )
+                    : "0"}{" "}
+                  / 分
+                </span>
+              </div>
+              <button className="saveScreen" onClick={() => setShowModal(true)}>
+                保存用画面
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="scorePerMinuteSaveButtonArea">
-          <div className="scorePerMinute">
-            <span>
-              {endTime > startTime
-                ? Math.floor(
-                    ((endScore - startScore) / (endTime - startTime)) * 60,
-                  )
-                : "0"}{" "}
-              / 分
-            </span>
-          </div>
-          <button className="saveScreen" onClick={() => setShowModal(true)}>
-            保存用画面
-          </button>
         </div>
       </div>
 
